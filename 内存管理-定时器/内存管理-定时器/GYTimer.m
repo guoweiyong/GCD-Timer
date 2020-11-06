@@ -7,10 +7,16 @@
 
 #import "GYTimer.h"
 
+
+@implementation GYTimer
+/**
+ 使用静态变量会造成以下问题，使用block执行任务时，即使退出,定时器依不会销毁，因为定时间cachesTiemr所拥有，除非手动停止定时器，不然会一直执行定时器
+ 
+ 使用self selector等方式时，定时器会对target强引用，造成target对象不能释放，除非手动销毁定时器
+ */
 //缓存定时器
 static NSMutableDictionary *cachesTiemr;
 dispatch_semaphore_t semaphore;
-@implementation GYTimer
 
 + (void)initialize {
     static dispatch_once_t onceToken;

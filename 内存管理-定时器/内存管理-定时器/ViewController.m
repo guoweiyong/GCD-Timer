@@ -28,8 +28,8 @@
 //    self.identifier = [GYTimer executeTask:^{
 //            NSLog(@"222222222====%@",[NSThread currentThread]);
 //        } start:2.0 interval:1.0 repeat:YES async:NO];
-    self.identifier = [GYTimer executeTaskWithTarget:self action:@selector(timerTest) start:2.0 interval:1.0 repeat:YES async:YES];
-
+    //self.identifier = [GYTimer executeTaskWithTarget:self action:@selector(timerTest) start:2.0 interval:1.0 repeat:YES async:YES];
+    [self gcdTimer22];
     
 }
 
